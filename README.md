@@ -1,1 +1,2 @@
-# sistema-simulacao-loja-node-express
+# Projeto de simulação de Loja feito utilizando Node.js no framework do Express
+##README em andamento...
