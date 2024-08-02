@@ -1,1 +1,1 @@
-# sistema-simula-o-loja-node-express
+# sistema-simulacao-loja-node-express
