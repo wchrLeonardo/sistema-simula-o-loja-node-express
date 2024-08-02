@@ -1,0 +1,22 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Alterar Pedido</h1>
+            <hr>
+            <form action="/pedidos/update/<%= pedido.id%>" method="post">
+                <label>Número do Pedido:</label>
+                <input type="number" name="numero" class="form-control" value="<%= pedido.numero%>" required>
+                <label>Valor do Pedido:</label>
+                <input type="text" name="valor" class="form-control" value="<%= pedido.valor%>" required>
+                <input type="hidden" name="id" value="<%= pedido.id%>"> 
+                <br>
+                <input type="submit" value="Alterar" class="btn btn-warning">
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+<%- include ('partials/footer.ejs') %>
