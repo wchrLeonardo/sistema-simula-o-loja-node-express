@@ -1,0 +1,58 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+
+<!-- Formulário -->
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Cadastrar Pedido</h1>
+        </div>
+        <div class="card-body">
+            <form action="/pedidos/new" method="post">
+                <label>Número</label>
+                <input type="number" name="numero" placeholder="Número do pedido" class="form-control" required>
+                <label>Valor</label>
+                <input type="text" name="valor" placeholder="Valor do pedido" class="form-control" required>
+                <br>
+                <input type="submit" value="Cadastrar" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+</div>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1>Pedidos</h1>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Número:</th>
+                            <th>Valor:</th>
+                            <th colspan="2" style="text-align: center;">Ações:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% pedidos.forEach(pedido => { %>
+                        <tr>
+                            <td><img src="imgs/order.png" width="30px"></td>
+                            <td><%= pedido.numero %></td>
+                            <td><%= pedido.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+                            <td>
+                                <a href="/pedidos/edit/<%= pedido.id%>" onclick="return confirm('Deseja mesmo alterar o pedido <%= pedido.numero%>?')" class="btn btn-warning">Editar</a>
+                            </td>
+                            <td>
+                                <a href="/pedidos/delete/<%= pedido.id%>" onclick="return confirm('Deseja mesmo excluir o pedido <%= pedido.valor%>?')" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include ('partials/footer.ejs') %>
